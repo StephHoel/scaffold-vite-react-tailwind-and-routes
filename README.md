@@ -24,8 +24,8 @@ Este projeto é um scaffold básico para iniciar o desenvolvimento de aplicaçõ
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/stephhoel/scaffold-react-router-tailwind.git
-   cd scaffold-react-router-tailwind
+   git clone https://github.com/stephhoel/scaffold-vite-react-router-with-routes.git
+   cd scaffold-vite-react-router-with-routes
    ```
 
 2. Instale as dependências:
@@ -46,6 +46,8 @@ Este projeto é um scaffold básico para iniciar o desenvolvimento de aplicaçõ
 
 4. Abra o navegador e acesse: `http://localhost:5173/`
 
+5. Faça uma busca geral no código (CTRL + SHIFT + F) pela palavra `scaffold`, você precisa alterar para o nome do seu projeto onde ela aparecer.
+
 ---
 
 ## 📂 Estrutura do Projeto
@@ -54,10 +56,7 @@ Este projeto é um scaffold básico para iniciar o desenvolvimento de aplicaçõ
 src/
 ├── components/         # Componentes reutilizáveis
 ├── pages/              # Páginas da aplicação
-│   ├── _layout.tsx     # Layout principal compartilhado entre as páginas
-│   ├── Home.tsx        # Página inicial
-│   ├── NotFound.tsx    # Página 404
-├── routes/             # Configuração de rotas
+├── router/             # Configuração de rotas
 ├── index.css           # Estilos globais (inclui TailwindCSS)
 ├── main.jsx            # Ponto de entrada da aplicação
 └── tailwind.config.js  # Configuração do TailwindCSS
@@ -67,23 +66,34 @@ src/
 
 ## 📜 Configuração do Roteamento
 
-O arquivo de configuração das rotas está localizado em `src/routes/router.tsx`. O exemplo abaixo mostra como configurar uma rota simples:
+O arquivo de configuração das rotas está localizado em `src/router/index.tsx`. O exemplo abaixo mostra como configurar uma rota simples:
 
 ```jsx
-import { createBrowserRouter } from "react-router-dom"
-import { Home } from "../pages/Home"
-import { NotFound } from "../pages/NotFound"
+import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { Layout } from '@/components/layout/Layout'
+import { URL_BASE, url } from '@/constants/routes'
+import { Home } from '@/pages/Home'
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      element: <Layout />,
+      children: [
+        {
+          path: url.index.replace(URL_BASE, ''),
+          element: <Home />,
+        },
+        {
+          path: url.notFound.replace(URL_BASE, ''),
+          element: <Navigate to={'/'} replace={true} />,
+        },
+      ],
+    },
+  ],
   {
-    path: '/',
-    element: <Home />
+    basename: URL_BASE,
   },
-  {
-    path: "/*",
-    element: <NotFound />
-  }
-])
+)
 ```
 
 ---
@@ -108,7 +118,7 @@ Exemplo:
    O arquivo `tailwind.config.js` pode ser ajustado para atender às suas necessidades. Por exemplo, você pode adicionar novas cores ou configurações.
 
 2. **Estrutura das Rotas**:
-   Modifique ou adicione novas rotas no arquivo `src/routes/router.tsx`.
+   Modifique ou adicione novas rotas no arquivo `src/router/index.tsx`.
 
 3. **Componentes e Páginas**:
    Adicione novos componentes em `src/components/` e páginas em `src/pages/`.
