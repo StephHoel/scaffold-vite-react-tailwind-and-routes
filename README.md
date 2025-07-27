@@ -23,11 +23,13 @@ Este projeto é um scaffold básico para iniciar o desenvolvimento de aplicaçõ
 
 ### Passo a passo
 
-1. Crie um novo repositório com este template:
+1. Crie um novo repositório com este template (lembre de trocar os valores das variáveis para os valores certos):
 
    ```bash
-   PROJECT_NAME=nome-do-repo
+   PROJECT_NAME=nome-do-novo-repo
+   USER_NAME=seu-nome-de-usuario
    gh repo create $PROJECT_NAME --template stephhoel/scaffold-vite-react-tailwind-and-routes --public
+   git clone https://github.com/$USER_NAME/$PROJECT_NAME.git
    cd $PROJECT_NAME
    ```
 
