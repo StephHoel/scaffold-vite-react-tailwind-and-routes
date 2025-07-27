@@ -18,14 +18,17 @@ Este projeto é um scaffold básico para iniciar o desenvolvimento de aplicaçõ
 
 - Node.js (versão 16 ou superior)
 - npm ou yarn
+- GitHub CLI (gh)
+- Estar autenticado com `gh auth login`
 
 ### Passo a passo
 
-1. Clone este repositório:
+1. Crie um novo repositório com este template:
 
    ```bash
-   git clone https://github.com/stephhoel/scaffold-vite-react-router-with-routes.git
-   cd scaffold-vite-react-router-with-routes
+   PROJECT_NAME=nome-do-repo
+   gh repo create $PROJECT_NAME --template stephhoel/scaffold-vite-react-tailwind-and-routes --public
+   cd $PROJECT_NAME
    ```
 
 2. Instale as dependências:
@@ -122,6 +125,12 @@ Exemplo:
 
 3. **Componentes e Páginas**:
    Adicione novos componentes em `src/components/` e páginas em `src/pages/`.
+
+4. **[SUGESTÃO] Usar Shadcn para componentes como button, card e afins**:
+   O projeto já está configurado para usar o Shadcn.
+   Para iniciar use o comando `npx shadcn@latest init` e escolha qual cor base do seu projeto.
+   Para adicionar componentes use o comando `npx shadcn@latest add button` onde button é o componente a ser adicionado.
+   Para mais informações, veja na documentação: `https://ui.shadcn.com/docs/installation/vite`
 
 ---
 
