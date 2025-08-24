@@ -33,7 +33,12 @@ Este projeto é um scaffold básico para iniciar o desenvolvimento de aplicaçõ
    cd $PROJECT_NAME
    ```
 
-2. Instale as dependências:
+2. Se o repositório já existe, puxe a sub árvore:
+   ```bash
+   git subtree add --prefix=template https://github.com/StephHoel/scaffold-vite-react-tailwind-and-routes.git main --squash
+   ```
+
+3. Instale as dependências:
 
    ```bash
    npm install
@@ -41,7 +46,7 @@ Este projeto é um scaffold básico para iniciar o desenvolvimento de aplicaçõ
    yarn install
    ```
 
-3. Inicie o servidor de desenvolvimento:
+4. Inicie o servidor de desenvolvimento:
 
    ```bash
    npm run dev
@@ -49,9 +54,9 @@ Este projeto é um scaffold básico para iniciar o desenvolvimento de aplicaçõ
    yarn run dev
    ```
 
-4. Abra o navegador e acesse: `http://localhost:5173/`
+5. Abra o navegador e acesse: `http://localhost:5173/`
 
-5. Faça uma busca geral no código (CTRL + SHIFT + F) pela palavra `scaffold`, você precisa alterar para o nome do seu projeto onde ela aparecer.
+6. Faça uma busca geral no código (CTRL + SHIFT + F) pela palavra `scaffold`, você precisa alterar para o nome do seu projeto onde ela aparecer.
 
 ---
 
